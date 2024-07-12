@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: "BrittanySignature";
+  src: url("/src/assets/fonts/BrittanySignature.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GastonDemo";
+  src: url("/src/assets/fonts/GastonDemo.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+.presentationBG {
+  background-image: url("./assets/imgs/primera-esquina.svg");
+  background-size: 20%;
+  background-position: top left;
+  background-repeat: no-repeat;
+}
+
+.adornoBG {
+  background-image: url("./assets/imgs/adorno.svg");
+  background-size: 8%;
+  background-position: bottom 30px left 10px;
+  background-repeat: no-repeat;
+}
+
+.adornoBG2 {
+  background-image: url("./assets/imgs/adorno2.svg");
+  background-size: 8%;
+  background-position: bottom 30px right 10px;
+  background-repeat: no-repeat;
+}
+.adornoBG3 {
+  background-image: url("./assets/imgs/adorno.svg"),
+    url("./assets/imgs/adornoarriba.svg");
+  background-size: 8%, 8%;
+  background-position: bottom 30px left 10px, top 30px right 10px;
+  background-repeat: no-repeat, no-repeat;
+}
+
+/* RESPONSIVE */
+@media (min-width: 300px) and (max-width: 700px) {
+  .presentationBG {
+    background-size: 50%;
+  }
+  .adornoBG {
+    background-size: 20%;
+  }
+  .adornoBG2 {
+    background-size: 20%;
+  }
+  .adornoBG3 {
+    background-size: 20%;
+  }
+}
+
+@media (min-width: 700px) and (max-width: 990px) {
+  .presentationBG {
+    background-size: 30%;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .presentationBG {
+    background-size: 20%;
+  }
+}
+
+/* Estilo para el círculo exterior */
+input[type="radio"] {
+  accent-color: #b21f1c; /* Cambia el color del círculo exterior a rojo */
+  cursor: pointer;
+}
+
+input[type="text"]::placeholder {
+  color: rgb(218, 218, 218);
+}

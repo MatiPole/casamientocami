@@ -13,14 +13,17 @@ import Corazon from "./assets/imgs/corazon.svg";
 import Button from "@mui/material/Button";
 
 function App() {
+  function HandleLinkRegalo() {
+    window.open("https://www.decasorio.com.ar/lista/camiynico", "_blank");
+  }
   return (
     <>
       <ResponsiveAppBar></ResponsiveAppBar>
-      <div className="presentationBG pt-16 mb-32" id="inicio">
+      <div className="presentationBG pt-24 pb-6 mb-32" id="inicio">
         <h1 className="text-center font-title text-cta text-5xl pt-10 ">
           Cami y Nico
         </h1>
-        <p className="text-center font-bold font-accent text-cta text-xl pt-10 pb-4">
+        <p className="text-center bold-date font-bold font-accent text-cta text-xl pt-10 pb-4">
           16.11.2024
         </p>
         <img
@@ -95,6 +98,7 @@ function App() {
               backgroundColor: "#575756",
               "&:hover": { backgroundColor: "#575756" },
             }}
+            onClick={HandleLinkRegalo}
           >
             Ver Lista
           </Button>
@@ -175,14 +179,14 @@ function App() {
       </div>
 
       <div
-        className="bg-cream pb-28 pt-36 md:py-32 px-4 relative adornoBG3 "
+        className="bg-cream pb-24 pt-36 md:py-32 px-4 relative adornoBG3 "
         id=""
       >
         <div className="">
-          <h2 className="text-center font-medium  text-opacity2 font-title  text-5xl md:text-6xl pb-6">
+          <h2 className="text-center font-medium  text-opacity2 font-title text-5xl md:text-6xl pb-6 leading-snug">
             Que empiece la fiesta! los esperamos
           </h2>
-          <img className="m-auto w-1/12  " src={Corazon} alt="corazón" />
+          <img className="m-auto mt-6 w-1/12  " src={Corazon} alt="corazón" />
         </div>
         <img
           className="absolute bottom-0 left-0 w-full translate-y-1/2 md:h-[20px] md:w-full "

@@ -10,7 +10,7 @@ const config = {
         graylighter: "#6B6B6B",
         opacity: "rgba(0, 0, 0, 0.89)",
         opacity2: "#1d1d1b",
-        cream: "#f2ede7",
+        cream: "#f4f4f4",
         lightbrown: "#c7b65e",
         red: "#b21f1c",
         orange: "#f4a631",

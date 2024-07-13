@@ -1,7 +1,9 @@
 import React, { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { Button, Box, Typography, FormControl } from "@mui/material";
-import axios from "axios";
+import { Slide, ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Puff } from "react-loader-spinner";
 function FormTransport() {
   const [formData, setFormData] = useState({
     name: "",
@@ -10,6 +12,8 @@ function FormTransport() {
 
   const [errors, setErrors] = useState({});
   const [submitStatus, setSubmitStatus] = useState("");
+  const [puffloader, setPuffloader] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -29,16 +33,43 @@ function FormTransport() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
+      setPuffloader(true);
       emailjs
-        .sendForm("service_p275jaq", "template_e9nx4au", form.current, {
-          publicKey: "gknjUentNBdJlAW7W",
+        .sendForm("service_c3rsmto", "template_yqb8gsd", form.current, {
+          publicKey: "YlsROYeZk6KshWiHf",
         })
         .then(
           () => {
             console.log("SUCCESS!");
+            toast.success("¡Mensaje Enviado!", {
+              position: "top-center",
+              autoClose: 3000,
+              hideProgressBar: true,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: 0,
+              theme: "light",
+              transition: Slide,
+            });
+            form.current.reset();
+            setFormData({ name: "", phone: "" });
+            setPuffloader(false);
           },
           (error) => {
             console.log("FAILED...", error.text);
+            toast.error("¡Error al enviar!", {
+              position: "top-center",
+              autoClose: 3000,
+              hideProgressBar: true,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: 0,
+              theme: "light",
+              transition: Slide,
+            });
+            setPuffloader(false);
           }
         );
     }
@@ -90,18 +121,43 @@ function FormTransport() {
         />
         {errors.phone && <Typography color="error">{errors.phone}</Typography>}
         <div className="flex justify-center">
-          <Button
-            variant="contained"
-            className="w-1/2"
-            sx={{
-              backgroundColor: "#575756",
-              "&:hover": { backgroundColor: "#575756" },
-              marginBlock: "1rem",
-            }}
-            type="submit"
-          >
-            Enviar
-          </Button>
+          <ToastContainer
+            position="top-center"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+          />
+          {puffloader ? (
+            <Puff
+              className="m-auto"
+              visible={puffloader}
+              height="80"
+              width="80"
+              color="#c7b65e"
+              ariaLabel="puff-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+            />
+          ) : (
+            <Button
+              variant="contained"
+              className="w-1/2"
+              sx={{
+                backgroundColor: "#575756",
+                "&:hover": { backgroundColor: "#575756" },
+                marginBlock: "1rem",
+              }}
+              type="submit"
+            >
+              Enviar
+            </Button>
+          )}
         </div>
       </Box>
     </>

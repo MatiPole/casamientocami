@@ -4,7 +4,7 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import { FormInvitation, ResponsiveAppBar, FormTransport } from "./index.js";
-import DibujoCopas from "./assets/imgs/dibujo-copas.png";
+import DibujoCopas from "./assets/imgs/dibujo-copas.svg";
 import LineaRoja from "./assets/imgs/linea-roja-horizontal.svg";
 import LineaVerde from "./assets/imgs/linea-verde-vertical.svg";
 import ArcosRojos from "./assets/imgs/arcos-rojo-horizontal.svg";
@@ -19,7 +19,7 @@ function App() {
   return (
     <>
       <ResponsiveAppBar></ResponsiveAppBar>
-      <div className="presentationBG pt-24 pb-6 mb-32" id="inicio">
+      <div className="presentationBG pt-44 md:pt-28 pb-16 mb-32" id="inicio">
         <h1 className="text-center font-title text-cta text-5xl pt-10 ">
           Cami y Nico
         </h1>
@@ -179,7 +179,7 @@ function App() {
       </div>
 
       <div
-        className="bg-cream pb-24 pt-36 md:py-32 px-4 relative adornoBG3 "
+        className="bg-cream pb-44 pt-52 md:py-32 px-4 relative adornoBG3 "
         id=""
       >
         <div className="">
